@@ -1,0 +1,21 @@
+# Groupe sysadmins peut tout faire en tant que root
+%sysadmins ALL=(root) ALL
+
+# Groupe artists - Limite aux commandes spécifiques sur des fichiers NON éditables
+%artists ALL=(sadia) NOPASSWD: /usr/bin/ls /data/, /usr/bin/ls /data/projects/, /usr/bin/cat /data/projects/*.docx, /usr/bin/file /data/projects/*.docx
+
+# Utilisateur alysha - Limité à la lecture spécifique du fichier ideas.docx
+alysha ALL=(suha) NOPASSWD: /bin/cat /data/projects/the_zoo/ideas.docx
+
+# Groupe devs - Installation de paquets précis, pas de wildcard dangereux
+%devs ALL=(root) NOPASSWD: /usr/bin/dnf install gcc, /usr/bin/dnf install make, /usr/bin/dnf install python3-devel
+
+# Utilisateur jakub - Suppression de l'accès à python3 (car risque shell)
+# Si nécessaire, autoriser un script spécifique seulement
+#jakub ALL=(liam) NOPASSWD: /usr/bin/python3   --> SUPPRIMÉ
+
+# Groupe admins - Lecture des ressources système
+%admins ALL=(daniel) NOPASSWD: /usr/bin/free, /usr/bin/top, /usr/bin/df, /usr/bin/du, /usr/bin/ps, /usr/sbin/ip
+
+# Utilisateur lev - Limiter openssl sans shell interactif
+lev ALL=(daniel) NOPASSWD: /usr/bin/openssl req *, /usr/bin/openssl x509 *, /usr/bin/dig, /usr/bin/ping, /usr/bin/curl

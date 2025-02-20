@@ -193,3 +193,11 @@ alysha ALL=(suha) NOPASSWD: /bin/cat /data/projects/the_zoo/ideas.docx
 # lev peut utiliser openssl sans shell interactif
 lev ALL=(daniel) NOPASSWD: /usr/bin/openssl req *, /usr/bin/openssl x509 *, /usr/bin/dig, /usr/bin/ping, /usr/bin/curl
 ```
+
+# V. FTP
+
+🌞 **Mettre en place un serveur FTP + TLS**
+
+![Alt text](https://jollycontrarian.com/images/6/6c/Rickroll.jpg)
+
+pa u le tan
